@@ -19,6 +19,8 @@ import {
   Livestream as PrismaLivestream,
 } from "@prisma/client";
 
+import { UserUpdateInput } from "./UserUpdateInput";
+
 export class UserServiceBase {
   constructor(protected readonly prisma: PrismaService) {}
 
@@ -73,5 +75,11 @@ export class UserServiceBase {
         where: { id: parentId },
       })
       .livestreams(args);
+  }
+  async BlockUser(args: UserUpdateInput): Promise<UserUpdateInput> {
+    throw new Error("Not implemented");
+  }
+  async UnblockUser(args: UserUpdateInput): Promise<UserUpdateInput> {
+    throw new Error("Not implemented");
   }
 }

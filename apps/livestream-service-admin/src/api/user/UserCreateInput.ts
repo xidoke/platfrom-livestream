@@ -9,6 +9,7 @@ export type UserCreateInput = {
   donations?: DonationCreateNestedManyWithoutUsersInput;
   email?: string | null;
   firstName?: string | null;
+  isBlocked?: boolean | null;
   lastName?: string | null;
   livestreams?: LivestreamCreateNestedManyWithoutUsersInput;
   password: string;

@@ -17,6 +17,7 @@ import {
   IsOptional,
   ValidateNested,
   IsDate,
+  IsBoolean,
 } from "class-validator";
 import { Chat } from "../../chat/base/Chat";
 import { Type } from "class-transformer";
@@ -96,6 +97,17 @@ class User {
   @IsString()
   @Field(() => String)
   id!: string;
+
+  @ApiProperty({
+    required: false,
+    type: Boolean,
+  })
+  @IsBoolean()
+  @IsOptional()
+  @Field(() => Boolean, {
+    nullable: true,
+  })
+  isBlocked!: boolean | null;
 
   @ApiProperty({
     required: false,

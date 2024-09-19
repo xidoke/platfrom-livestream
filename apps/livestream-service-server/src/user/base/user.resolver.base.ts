@@ -26,6 +26,7 @@ import { DonationFindManyArgs } from "../../donation/base/DonationFindManyArgs";
 import { Donation } from "../../donation/base/Donation";
 import { LivestreamFindManyArgs } from "../../livestream/base/LivestreamFindManyArgs";
 import { Livestream } from "../../livestream/base/Livestream";
+import { UserUpdateInput } from "./UserUpdateInput";
 import { UserService } from "../user.service";
 @graphql.Resolver(() => User)
 export class UserResolverBase {
@@ -133,5 +134,21 @@ export class UserResolverBase {
     }
 
     return results;
+  }
+
+  @graphql.Mutation(() => UserUpdateInput)
+  async BlockUser(
+    @graphql.Args()
+    args: UserUpdateInput
+  ): Promise<UserUpdateInput> {
+    return this.service.BlockUser(args);
+  }
+
+  @graphql.Mutation(() => UserUpdateInput)
+  async UnblockUser(
+    @graphql.Args()
+    args: UserUpdateInput
+  ): Promise<UserUpdateInput> {
+    return this.service.UnblockUser(args);
   }
 }

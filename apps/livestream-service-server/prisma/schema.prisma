@@ -64,6 +64,7 @@ model User {
   email          String?      @unique
   firstName      String?
   id             String       @id @default(cuid())
+  isBlocked      Boolean?
   lastName       String?
   livestreams    Livestream[]
   password       String

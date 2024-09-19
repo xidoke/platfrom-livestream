@@ -16,6 +16,7 @@ import {
   MaxLength,
   IsOptional,
   ValidateNested,
+  IsBoolean,
 } from "class-validator";
 import { ChatUpdateManyWithoutUsersInput } from "./ChatUpdateManyWithoutUsersInput";
 import { Type } from "class-transformer";
@@ -85,6 +86,17 @@ class UserUpdateInput {
     nullable: true,
   })
   firstName?: string | null;
+
+  @ApiProperty({
+    required: false,
+    type: Boolean,
+  })
+  @IsBoolean()
+  @IsOptional()
+  @Field(() => Boolean, {
+    nullable: true,
+  })
+  isBlocked?: boolean | null;
 
   @ApiProperty({
     required: false,

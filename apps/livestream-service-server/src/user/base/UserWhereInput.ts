@@ -17,6 +17,7 @@ import { IsOptional, ValidateNested } from "class-validator";
 import { ChatListRelationFilter } from "../../chat/base/ChatListRelationFilter";
 import { DonationListRelationFilter } from "../../donation/base/DonationListRelationFilter";
 import { StringFilter } from "../../util/StringFilter";
+import { BooleanNullableFilter } from "../../util/BooleanNullableFilter";
 import { LivestreamListRelationFilter } from "../../livestream/base/LivestreamListRelationFilter";
 
 @InputType()
@@ -88,6 +89,17 @@ class UserWhereInput {
     nullable: true,
   })
   id?: StringFilter;
+
+  @ApiProperty({
+    required: false,
+    type: BooleanNullableFilter,
+  })
+  @Type(() => BooleanNullableFilter)
+  @IsOptional()
+  @Field(() => BooleanNullableFilter, {
+    nullable: true,
+  })
+  isBlocked?: BooleanNullableFilter;
 
   @ApiProperty({
     required: false,
