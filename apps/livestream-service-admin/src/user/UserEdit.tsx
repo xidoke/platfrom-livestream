@@ -7,6 +7,7 @@ import {
   TextInput,
   ReferenceArrayInput,
   SelectArrayInput,
+  BooleanInput,
   PasswordInput,
 } from "react-admin";
 
@@ -36,6 +37,7 @@ export const UserEdit = (props: EditProps): React.ReactElement => {
         </ReferenceArrayInput>
         <TextInput label="Email" source="email" type="email" />
         <TextInput label="First Name" source="firstName" />
+        <BooleanInput label="isBlocked" source="isBlocked" />
         <TextInput label="Last Name" source="lastName" />
         <ReferenceArrayInput source="livestreams" reference="Livestream">
           <SelectArrayInput

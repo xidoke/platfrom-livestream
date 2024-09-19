@@ -6,6 +6,7 @@ import {
   ShowProps,
   TextField,
   DateField,
+  BooleanField,
   ReferenceManyField,
   Datagrid,
   ReferenceField,
@@ -23,6 +24,7 @@ export const UserShow = (props: ShowProps): React.ReactElement => {
         <TextField label="Email" source="email" />
         <TextField label="First Name" source="firstName" />
         <TextField label="ID" source="id" />
+        <BooleanField label="isBlocked" source="isBlocked" />
         <TextField label="Last Name" source="lastName" />
         <TextField label="profile_picture" source="profilePicture" />
         <TextField label="Roles" source="roles" />

@@ -9,6 +9,7 @@ export type UserUpdateInput = {
   donations?: DonationUpdateManyWithoutUsersInput;
   email?: string | null;
   firstName?: string | null;
+  isBlocked?: boolean | null;
   lastName?: string | null;
   livestreams?: LivestreamUpdateManyWithoutUsersInput;
   password?: string;

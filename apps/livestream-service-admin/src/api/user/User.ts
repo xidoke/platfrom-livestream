@@ -11,6 +11,7 @@ export type User = {
   email: string | null;
   firstName: string | null;
   id: string;
+  isBlocked: boolean | null;
   lastName: string | null;
   livestreams?: Array<Livestream>;
   profilePicture: string | null;

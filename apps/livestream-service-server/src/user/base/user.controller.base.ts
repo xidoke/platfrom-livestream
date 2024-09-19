@@ -45,6 +45,7 @@ export class UserControllerBase {
         email: true,
         firstName: true,
         id: true,
+        isBlocked: true,
         lastName: true,
         profilePicture: true,
         roles: true,
@@ -67,6 +68,7 @@ export class UserControllerBase {
         email: true,
         firstName: true,
         id: true,
+        isBlocked: true,
         lastName: true,
         profilePicture: true,
         roles: true,
@@ -90,6 +92,7 @@ export class UserControllerBase {
         email: true,
         firstName: true,
         id: true,
+        isBlocked: true,
         lastName: true,
         profilePicture: true,
         roles: true,
@@ -122,6 +125,7 @@ export class UserControllerBase {
           email: true,
           firstName: true,
           id: true,
+          isBlocked: true,
           lastName: true,
           profilePicture: true,
           roles: true,
@@ -154,6 +158,7 @@ export class UserControllerBase {
           email: true,
           firstName: true,
           id: true,
+          isBlocked: true,
           lastName: true,
           profilePicture: true,
           roles: true,
@@ -435,5 +440,39 @@ export class UserControllerBase {
       data,
       select: { id: true },
     });
+  }
+
+  @common.Patch("/block")
+  @swagger.ApiOkResponse({
+    type: UserUpdateInput,
+  })
+  @swagger.ApiNotFoundResponse({
+    type: errors.NotFoundException,
+  })
+  @swagger.ApiForbiddenResponse({
+    type: errors.ForbiddenException,
+  })
+  async BlockUser(
+    @common.Body()
+    body: UserUpdateInput
+  ): Promise<UserUpdateInput> {
+    return this.service.BlockUser(body);
+  }
+
+  @common.Patch("/unblock")
+  @swagger.ApiOkResponse({
+    type: UserUpdateInput,
+  })
+  @swagger.ApiNotFoundResponse({
+    type: errors.NotFoundException,
+  })
+  @swagger.ApiForbiddenResponse({
+    type: errors.ForbiddenException,
+  })
+  async UnblockUser(
+    @common.Body()
+    body: UserUpdateInput
+  ): Promise<UserUpdateInput> {
+    return this.service.UnblockUser(body);
   }
 }
